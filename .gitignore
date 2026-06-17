@@ -11,3 +11,6 @@ extension/key.pem
 extension/key.b64
 extension/ext-id.txt
 extension/content-main.bundle.js
+
+# Claude Code local settings
+.claude/settings.local.json
