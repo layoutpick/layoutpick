@@ -165,42 +165,25 @@ export default function Home() {
               .
             </p>
 
-            <div style={{ display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "10px" }}>
               <BuyButton />
+              <p style={{ fontSize: ".85rem", color: "#7b8299", margin: "2px 0 0" }}>
+                One-time $5 · lifetime license · keeps LayoutPick free for everyone.
+              </p>
+              {/* Intentionally de-emphasised opt-out (a gentle nudge to pay). */}
               <a
-                href="https://chromewebstore.google.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#install"
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  fontSize: "15px",
-                  fontWeight: 500,
-                  padding: "12px 22px",
-                  borderRadius: "10px",
-                  border: "1px solid #252a38",
-                  color: "#7b8299",
-                  background: "transparent",
-                  textDecoration: "none",
+                  fontSize: "12.5px",
+                  color: "#454d66",
+                  textDecoration: "underline",
+                  textUnderlineOffset: "2px",
+                  marginTop: "4px",
                 }}
               >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <circle cx="8" cy="8" r="6.5" stroke="#7b8299" strokeWidth="1.5" />
-                  <circle cx="8" cy="8" r="2.5" fill="#7b8299" />
-                  <path
-                    d="M8 1.5v4M8 10.5v4M1.5 8h4M10.5 8h4"
-                    stroke="#7b8299"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                Add to Chrome
+                No thanks, I&apos;ll just install it for free
               </a>
             </div>
-            <p style={{ fontSize: ".85rem", color: "#454d66", marginTop: "14px" }}>
-              One-time $5 · lifetime license · macOS
-            </p>
 
             {/* Demo visual */}
             <div
