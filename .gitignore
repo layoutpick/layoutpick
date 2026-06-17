@@ -5,3 +5,9 @@ host/dist/
 web/.next/
 web/node_modules/
 *.log
+
+# Extension — generated artifacts + private signing key (must be saved separately)
+extension/key.pem
+extension/key.b64
+extension/ext-id.txt
+extension/content-main.bundle.js

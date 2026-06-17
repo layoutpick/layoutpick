@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "LayoutPick",
+  "version": "0.1.0",
+  "description": "Pick any element on a page and send it to the active Claude Code session via LayoutPick.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtVZsA8gf4YHGZ0d8z+WNjh6EckqGSQqk/2cM1YxzuX21uNz9UxNK+5279PX9+3d15kUkxzlsiCIDFkYVM4DBySo+jQq/Sv3ke4GCqZLrHOl7AtqMtDlz4bk2mfimV/GG5RYPYsCoHK9NmrNDVy9V9EfRx/ZxufHc8p/G0VAPgNcZdUBjc6ZpBk9OJ+KiD5SfhDLfQy8LpKh4nL25mLwZnYd/vIzjzYa0QI7uNyJyZ3Dy2HQAZQsNUhMqnKsNsQj1t8KbEXrMjpWXee678dDXSqyBMY5QitdjkjHjukaIXauTQJdWYgu/5oaRrtaWcg7Z56jat2e95UG0tGbyyMFwCQIDAQAB",
+  "permissions": ["tabs", "scripting", "nativeMessaging"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "service-worker.js", "type": "module" },
+  "action": { "default_title": "Toggle UI picker (Alt+S)" },
+  "commands": {
+    "toggle-picker": {
+      "suggested_key": { "default": "Alt+S" },
+      "description": "Toggle the element picker"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-main.bundle.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-relay.js"],
+      "world": "ISOLATED",
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

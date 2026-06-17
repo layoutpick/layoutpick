@@ -6,6 +6,7 @@
   "scripts": {
     "test": "bun test",
     "build:host": "bun build host/src/main.ts --compile --outfile host/dist/layoutpick",
+    "build:ext": "node extension/build.mjs",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
