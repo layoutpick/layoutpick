@@ -1,4 +1,5 @@
 #!/usr/bin/env bun
+import * as path from 'node:path'
 import process from 'node:process'
 import { writeCapture, type PickedPayload } from './capture'
 import { FrameReader, encodeMessage } from './framing'
@@ -18,7 +19,7 @@ function runHost(): void {
       try {
         const png = msg.pngBase64 ? Buffer.from(msg.pngBase64, 'base64') : null
         const res = writeCapture({ inboxDir: inboxDir(), payload: msg.payload, png })
-        const name = res.mdPath.split('/').pop()
+        const name = path.basename(res.mdPath)
         process.stdout.write(encodeMessage({ ok: true, message: `captured ${name}${res.pngPath ? ' + screenshot' : ''}` }))
       }
       catch (err: any) {

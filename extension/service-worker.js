@@ -23,16 +23,18 @@ async function bitmapFromDataUrl(dataUrl) {
   return createImageBitmap(blob)
 }
 
-async function cropToBase64(dataUrl, box) {
-  const bitmap = await bitmapFromDataUrl(dataUrl)
+async function cropToBase64(bitmap, box) {
   const canvas = new OffscreenCanvas(box.w, box.h)
   const ctx = canvas.getContext('2d')
   ctx.drawImage(bitmap, box.x, box.y, box.w, box.h, 0, 0, box.w, box.h)
   const out = await canvas.convertToBlob({ type: 'image/png' })
-  const buf = await out.arrayBuffer()
+  const bytes = new Uint8Array(await out.arrayBuffer())
+  // Build the binary string in chunks — a single spread/apply can overflow the
+  // call stack on multi-hundred-KB images.
   let binary = ''
-  const bytes = new Uint8Array(buf)
-  for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i])
+  const CHUNK = 0x8000
+  for (let i = 0; i < bytes.length; i += CHUNK)
+    binary += String.fromCharCode.apply(null, bytes.subarray(i, i + CHUNK))
   return btoa(binary)
 }
 
@@ -49,7 +51,7 @@ chrome.runtime.onMessage.addListener((msg, sender) => {
       const r = payload.viewRect || payload.rect
       const viewRect = { x: r.x, y: r.y, width: r.width, height: r.height }
       const box = cropBox(viewRect, dpr, { w: bitmap.width, h: bitmap.height })
-      pngBase64 = await cropToBase64(dataUrl, box)
+      pngBase64 = await cropToBase64(bitmap, box)
     }
     catch (e) { /* screenshot optional */ }
     chrome.runtime.sendNativeMessage(NATIVE_HOST, { payload, pngBase64 }, (resp) => {

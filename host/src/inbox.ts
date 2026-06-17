@@ -23,10 +23,12 @@ function mdsByNewest(dir: string): string[] {
   let names: string[]
   try { names = fs.readdirSync(dir) }
   catch { return [] }
+  // Filenames are element-<ISO-ish-ts>.md (fixed-width), so lexical order is
+  // chronological — sort by name (newest first) and avoid a statSync per file.
   return names
     .filter(n => n.startsWith('element-') && n.endsWith('.md'))
+    .sort((a, b) => b.localeCompare(a))
     .map(n => path.join(dir, n))
-    .sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs)
 }
 
 function pruneConsumed(dir: string) {
