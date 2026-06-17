@@ -30,12 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body
-        className="min-h-full flex flex-col"
-        style={{
-          fontFamily: 'var(--font-inter), system-ui, -apple-system, sans-serif',
-        }}
-      >
+      <body className="min-h-full flex flex-col">
         {children}
       </body>
     </html>
