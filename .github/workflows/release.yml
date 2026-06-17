@@ -1,0 +1,25 @@
+name: release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install
+      - name: Build arm64
+        run: bun build host/src/main.ts --compile --target=bun-darwin-arm64 --outfile dist/layoutpick-darwin-arm64
+      - name: Build x64
+        run: bun build host/src/main.ts --compile --target=bun-darwin-x64 --outfile dist/layoutpick-darwin-x64
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/layoutpick-darwin-arm64
+            dist/layoutpick-darwin-x64
