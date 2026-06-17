@@ -2,6 +2,7 @@ import CopyCommand from "@/components/CopyCommand"
 import { Container, Section, Stack, Row, Box } from "@/components/brand/layout"
 import { Heading, Text } from "@/components/brand/typography"
 import { Link } from "@/components/brand/link"
+import { LogoMark } from "@/components/brand/logo"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
@@ -16,16 +17,8 @@ export default function Home() {
         <Container>
           <Row justify="between" className="h-14">
             <Link href="/" variant="muted" className="flex items-center gap-2 font-semibold text-text no-underline">
-              <Box
-                className="w-6 h-6 bg-accent rounded-token-sm flex items-center justify-center shrink-0"
-               
-              >
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <rect x="1" y="1" width="5" height="5" rx="1" fill="white" opacity=".9" />
-                  <rect x="8" y="1" width="5" height="5" rx="1" fill="white" opacity=".5" />
-                  <rect x="1" y="8" width="5" height="5" rx="1" fill="white" opacity=".5" />
-                  <rect x="8" y="8" width="5" height="5" rx="1" fill="white" opacity=".9" />
-                </svg>
+              <Box className="w-6 h-6 bg-accent rounded-token-sm flex items-center justify-center shrink-0">
+                <LogoMark />
               </Box>
               LayoutPick
             </Link>
@@ -49,16 +42,19 @@ export default function Home() {
           <Container>
             <Stack gap="lg">
               <Badge className="self-start uppercase tracking-widest text-accent2 border-accent2/20 bg-accent2/10 rounded-token-full">
-                <Box className="w-2 h-2 rounded-token-full bg-accent2 mr-2">{""}</Box>
+                <Box className="w-2 h-2 rounded-token-full bg-accent2 mr-2" />
                 macOS · Chrome extension
               </Badge>
 
-              <Heading level={1} className="text-h1 font-semibold tracking-tight leading-tight">
-                Pick any element.
-                <br />
-                Send it to{" "}
-                <Text as="span" className="text-accent">Claude Code</Text>.
-              </Heading>
+              <Stack gap="xs">
+                <Heading level={1} className="text-h1 font-semibold tracking-tight leading-tight">
+                  Pick any element.
+                </Heading>
+                <Heading level={1} className="text-h1 font-semibold tracking-tight leading-tight">
+                  Send it to{" "}
+                  <Text as="span" className="text-accent">Claude Code</Text>.
+                </Heading>
+              </Stack>
 
               <Text muted className="max-w-lg text-body leading-relaxed">
                 Hover over any UI element in Chrome, press{" "}
@@ -88,9 +84,9 @@ export default function Home() {
               {/* Demo visual */}
               <Box className="mt-6 border border-border rounded-token-lg bg-surface overflow-hidden">
                 <Row gap="sm" align="center" className="px-4 py-3 border-b border-border bg-surface2">
-                  <Box className="w-2.5 h-2.5 rounded-token-full bg-red-400">{""}</Box>
-                  <Box className="w-2.5 h-2.5 rounded-token-full bg-yellow-400">{""}</Box>
-                  <Box className="w-2.5 h-2.5 rounded-token-full bg-green-400">{""}</Box>
+                  <Box className="w-2.5 h-2.5 rounded-token-full bg-red-400" />
+                  <Box className="w-2.5 h-2.5 rounded-token-full bg-yellow-400" />
+                  <Box className="w-2.5 h-2.5 rounded-token-full bg-green-400" />
                   <Text as="span" variant="mono" muted className="flex-1 text-center text-xs">
                     stripe.com/docs/payments
                   </Text>
@@ -108,13 +104,11 @@ export default function Home() {
                     </Text>
                   </Box>
                   <Box className="border border-border rounded-token-md p-4 text-sm text-text-muted">
-                    <Text as="span" variant="small" muted>
-                      Card component
-                      <br />
-                      Product grid
-                      <br />
-                      Nav link
-                    </Text>
+                    <Stack gap="xs">
+                      <Text as="span" variant="small" muted>Card component</Text>
+                      <Text as="span" variant="small" muted>Product grid</Text>
+                      <Text as="span" variant="small" muted>Nav link</Text>
+                    </Stack>
                   </Box>
                 </Box>
               </Box>
@@ -338,7 +332,7 @@ export default function Home() {
                       <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-accent2">
                         /pick 3
                       </Text>
-                      {" "}(or any number) to send the last <em>n</em> captures at once.
+                      {" "}(or any number) to send the last <Text as="span" className="italic">n</Text> captures at once.
                     </Text>
                   </Stack>
                 </Card>

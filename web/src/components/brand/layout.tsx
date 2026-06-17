@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import type { ReactNode } from "react"
 
-type Base = { className?: string; children: ReactNode; id?: string }
+type Base = { className?: string; children?: ReactNode; id?: string }
 type Gap = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
 
 const GAP: Record<Gap, string> = {
