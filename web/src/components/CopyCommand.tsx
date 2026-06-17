@@ -26,7 +26,7 @@ export default function CopyCommand() {
       className="bg-bg border border-border rounded-token-md px-4 py-3 overflow-x-auto"
     >
       <Box className="flex-1 overflow-x-auto">
-        <Text variant="mono" className="text-accent2 whitespace-nowrap">
+        <Text variant="mono" className="text-brand2 whitespace-nowrap">
           {COMMAND}
         </Text>
       </Box>
@@ -35,7 +35,7 @@ export default function CopyCommand() {
         size="icon"
         onClick={handleCopy}
         aria-label="Copy install command"
-        className={copied ? "text-accent2" : "text-text-muted"}
+        className={copied ? "text-brand2" : "text-text-muted"}
       >
         {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
       </Button>

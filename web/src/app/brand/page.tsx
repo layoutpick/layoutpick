@@ -10,7 +10,7 @@ import { Separator } from "@/components/ui/separator"
 // Static class maps — keys mirror tokens.color / tokens.type.
 const SWATCH: Record<keyof typeof tokens.color, string> = {
   bg: "bg-bg", surface: "bg-surface", surface2: "bg-surface2", text: "bg-text",
-  textMuted: "bg-text-muted", accent: "bg-accent", accent2: "bg-accent2", border: "bg-border",
+  textMuted: "bg-text-muted", brand: "bg-brand", brand2: "bg-brand2", border: "bg-border",
 }
 const TYPE_CLASS: Record<keyof typeof tokens.type, string> = {
   display: "text-display font-semibold", h1: "text-h1 font-semibold", h2: "text-h2 font-semibold",

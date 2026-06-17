@@ -7,8 +7,8 @@ export const tokens = {
     surface2: "#1a1e28",
     text: "#e7e9ee",
     textMuted: "#7b8299",
-    accent: "#4c8dff",
-    accent2: "#38c9b0",
+    brand: "#4c8dff",
+    brand2: "#38c9b0",
     border: "#252a36",
   },
   type: {

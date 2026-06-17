@@ -17,7 +17,7 @@ export default function Home() {
         <Container>
           <Row justify="between" className="h-14">
             <Link href="/" variant="muted" className="flex items-center gap-2 font-semibold text-text no-underline">
-              <Box className="w-6 h-6 bg-accent rounded-token-sm flex items-center justify-center shrink-0">
+              <Box className="w-6 h-6 bg-brand rounded-token-sm flex items-center justify-center shrink-0">
                 <LogoMark />
               </Box>
               LayoutPick
@@ -41,8 +41,8 @@ export default function Home() {
         <Section className="py-24">
           <Container>
             <Stack gap="lg">
-              <Badge className="self-start uppercase tracking-widest text-accent2 border-accent2/20 bg-accent2/10 rounded-token-full">
-                <Box className="w-2 h-2 rounded-token-full bg-accent2 mr-2" />
+              <Badge className="self-start uppercase tracking-widest text-brand2 border-brand2/20 bg-brand2/10 rounded-token-full">
+                <Box className="w-2 h-2 rounded-token-full bg-brand2 mr-2" />
                 macOS · Chrome extension
               </Badge>
 
@@ -52,19 +52,19 @@ export default function Home() {
                 </Heading>
                 <Heading level={1} className="text-h1 font-semibold tracking-tight leading-tight">
                   Send it to{" "}
-                  <Text as="span" className="text-accent">Claude Code</Text>.
+                  <Text as="span" className="text-brand">Claude Code</Text>.
                 </Heading>
               </Stack>
 
               <Text muted className="max-w-lg text-body leading-relaxed">
                 Hover over any UI element in Chrome, press{" "}
-                <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-accent2">
+                <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-brand2">
                   Alt+S
                 </Text>
                 , and LayoutPick captures a
                 markdown description + screenshot — ready to drop into your{" "}
-                <Text as="span" className="text-accent">Claude Code</Text> session with{" "}
-                <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-accent2">
+                <Text as="span" className="text-brand">Claude Code</Text> session with{" "}
+                <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-brand2">
                   /pick
                 </Text>
                 .
@@ -92,11 +92,11 @@ export default function Home() {
                   </Text>
                 </Row>
                 <Box className="p-6 grid grid-cols-2 gap-4 min-h-44">
-                  <Box className="border border-accent rounded-token-md p-4 bg-accent/10 text-text-muted text-sm relative">
-                    <Text as="span" variant="mono" className="absolute -top-3 left-3 text-xs text-accent bg-bg px-1">
+                  <Box className="border border-brand rounded-token-md p-4 bg-brand/10 text-text-muted text-sm relative">
+                    <Text as="span" variant="mono" className="absolute -top-3 left-3 text-xs text-brand bg-bg px-1">
                       Alt+S → click
                     </Text>
-                    <Text as="span" className="text-xs font-medium text-accent uppercase tracking-widest block mb-1">
+                    <Text as="span" className="text-xs font-medium text-brand uppercase tracking-widest block mb-1">
                       Captured
                     </Text>
                     <Text as="span" variant="small" muted>
@@ -123,20 +123,20 @@ export default function Home() {
           <Container>
             <Stack gap="xl">
               <Stack gap="sm">
-                <Text as="span" variant="small" className="text-accent font-semibold uppercase tracking-widest">
+                <Text as="span" variant="small" className="text-brand font-semibold uppercase tracking-widest">
                   How it works
                 </Text>
                 <Heading level={2}>Three steps, zero friction</Heading>
                 <Text muted className="max-w-md">
                   LayoutPick bridges the gap between what you see in the browser and what{" "}
-                  <Text as="span" className="text-accent">Claude Code</Text> can act on.
+                  <Text as="span" className="text-brand">Claude Code</Text> can act on.
                 </Text>
               </Stack>
 
               <Stack className="gap-0">
                 {/* Step 1 */}
                 <Row gap="lg" align="start" className="py-7 border-b border-border">
-                  <Box className="w-9 h-9 rounded-token-full bg-accent/10 border border-accent/30 text-accent text-sm font-semibold flex items-center justify-center shrink-0 mt-0.5">
+                  <Box className="w-9 h-9 rounded-token-full bg-brand/10 border border-brand/30 text-brand text-sm font-semibold flex items-center justify-center shrink-0 mt-0.5">
                     1
                   </Box>
                   <Stack gap="xs">
@@ -154,7 +154,7 @@ export default function Home() {
 
                 {/* Step 2 */}
                 <Row gap="lg" align="start" className="py-7 border-b border-border">
-                  <Box className="w-9 h-9 rounded-token-full bg-accent/10 border border-accent/30 text-accent text-sm font-semibold flex items-center justify-center shrink-0 mt-0.5">
+                  <Box className="w-9 h-9 rounded-token-full bg-brand/10 border border-brand/30 text-brand text-sm font-semibold flex items-center justify-center shrink-0 mt-0.5">
                     2
                   </Box>
                   <Stack gap="xs">
@@ -169,28 +169,28 @@ export default function Home() {
 
                 {/* Step 3 */}
                 <Row gap="lg" align="start" className="py-7">
-                  <Box className="w-9 h-9 rounded-token-full bg-accent/10 border border-accent/30 text-accent text-sm font-semibold flex items-center justify-center shrink-0 mt-0.5">
+                  <Box className="w-9 h-9 rounded-token-full bg-brand/10 border border-brand/30 text-brand text-sm font-semibold flex items-center justify-center shrink-0 mt-0.5">
                     3
                   </Box>
                   <Stack gap="xs">
                     <Heading level={3}>
                       Run{" "}
-                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-accent2">
+                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-brand2">
                         /pick
                       </Text>
                       {" "}in{" "}
-                      <Text as="span" className="text-accent">Claude Code</Text>
+                      <Text as="span" className="text-brand">Claude Code</Text>
                     </Heading>
                     <Text muted>
                       Switch to your{" "}
-                      <Text as="span" className="text-accent">Claude Code</Text>
+                      <Text as="span" className="text-brand">Claude Code</Text>
                       {" "}session and run{" "}
-                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-accent2">
+                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-brand2">
                         /pick
                       </Text>
                       . The element description and screenshot are injected into the conversation automatically.
                       Pick several elements first?{" "}
-                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-accent2">
+                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-brand2">
                         /pick 3
                       </Text>
                       {" "}sends the last three at once.
@@ -209,17 +209,17 @@ export default function Home() {
           <Container>
             <Stack gap="xl">
               <Stack gap="sm">
-                <Text as="span" variant="small" className="text-accent font-semibold uppercase tracking-widest">
+                <Text as="span" variant="small" className="text-brand font-semibold uppercase tracking-widest">
                   Install
                 </Text>
                 <Heading level={2}>Up in two steps</Heading>
                 <Text muted className="max-w-md">
                   The Chrome extension handles picking; the native installer wires up the{" "}
-                  <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-accent2">
+                  <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-brand2">
                     /pick
                   </Text>
                   {" "}command into{" "}
-                  <Text as="span" className="text-accent">Claude Code</Text>.
+                  <Text as="span" className="text-brand">Claude Code</Text>.
                 </Text>
               </Stack>
 
@@ -227,7 +227,7 @@ export default function Home() {
                 {/* Install Step 1 */}
                 <Card className="overflow-hidden p-0 border-border">
                   <Row gap="md" align="center" className="px-5 py-4 bg-surface border-b border-border">
-                    <Box className="w-6 h-6 rounded-token-full bg-accent text-white text-xs font-bold flex items-center justify-center shrink-0">
+                    <Box className="w-6 h-6 rounded-token-full bg-brand text-white text-xs font-bold flex items-center justify-center shrink-0">
                       1
                     </Box>
                     <Heading level={3}>Add LayoutPick to Chrome</Heading>
@@ -240,7 +240,7 @@ export default function Home() {
                     <Box>
                       {/* TODO: replace placeholder with real Chrome Web Store URL when published */}
                       <Link href="https://chromewebstore.google.com/" variant="muted" target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "outline" }) + " gap-2"}>
-                        <Globe className="w-4 h-4 text-accent" />
+                        <Globe className="w-4 h-4 text-brand" />
                         Chrome Web Store →
                       </Link>
                     </Box>
@@ -250,7 +250,7 @@ export default function Home() {
                 {/* Install Step 2 */}
                 <Card className="overflow-hidden p-0 border-border">
                   <Row gap="md" align="center" className="px-5 py-4 bg-surface border-b border-border">
-                    <Box className="w-6 h-6 rounded-token-full bg-accent text-white text-xs font-bold flex items-center justify-center shrink-0">
+                    <Box className="w-6 h-6 rounded-token-full bg-brand text-white text-xs font-bold flex items-center justify-center shrink-0">
                       2
                     </Box>
                     <Heading level={3}>Run the installer</Heading>
@@ -258,11 +258,11 @@ export default function Home() {
                   <Stack gap="md" className="p-5 bg-surface">
                     <Text muted variant="small">
                       This registers the native host and wires up the{" "}
-                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-accent2">
+                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-brand2">
                         /pick
                       </Text>
                       {" "}slash command in{" "}
-                      <Text as="span" className="text-accent">Claude Code</Text>. macOS only.
+                      <Text as="span" className="text-brand">Claude Code</Text>. macOS only.
                     </Text>
                     <CopyCommand />
                   </Stack>
@@ -279,7 +279,7 @@ export default function Home() {
           <Container>
             <Stack gap="xl">
               <Stack gap="sm">
-                <Text as="span" variant="small" className="text-accent font-semibold uppercase tracking-widest">
+                <Text as="span" variant="small" className="text-brand font-semibold uppercase tracking-widest">
                   Using LayoutPick
                 </Text>
                 <Heading level={2}>Quick reference</Heading>
@@ -310,12 +310,12 @@ export default function Home() {
                     <Text as="span" className="text-xl">⚡</Text>
                     <Heading level={3}>
                       Send to{" "}
-                      <Text as="span" className="text-accent">Claude Code</Text>
+                      <Text as="span" className="text-brand">Claude Code</Text>
                     </Heading>
                     <Text muted variant="small">
                       In{" "}
-                      <Text as="span" className="text-accent">Claude Code</Text>, run{" "}
-                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-accent2">
+                      <Text as="span" className="text-brand">Claude Code</Text>, run{" "}
+                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-brand2">
                         /pick
                       </Text>
                       {" "}to inject the last captured element — markdown + screenshot — into the current conversation.
@@ -329,7 +329,7 @@ export default function Home() {
                     <Heading level={3}>Send multiple</Heading>
                     <Text muted variant="small">
                       Pick several elements in a row, then run{" "}
-                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-accent2">
+                      <Text as="span" variant="mono" className="bg-surface2 border border-border rounded-token-sm px-1 text-brand2">
                         /pick 3
                       </Text>
                       {" "}(or any number) to send the last <Text as="span" className="italic">n</Text> captures at once.

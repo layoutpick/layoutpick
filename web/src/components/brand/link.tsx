@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 
 const VARIANT = {
   nav: "text-small text-text-muted hover:text-text transition-colors no-underline",
-  inline: "text-accent hover:underline underline-offset-4",
+  inline: "text-brand hover:underline underline-offset-4",
   muted: "text-text-muted hover:text-text transition-colors no-underline",
 } as const
 
