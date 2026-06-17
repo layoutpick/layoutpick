@@ -6,16 +6,16 @@
 @theme {
   --color-bg: #0d0f14;
   --color-surface: #13161d;
-  --color-surface-2: #1a1e28;
+  --color-surface2: #1a1e28;
   --color-text: #e7e9ee;
   --color-text-muted: #7b8299;
   --color-accent: #4c8dff;
-  --color-accent-2: #38c9b0;
+  --color-accent2: #38c9b0;
   --color-border: #252a36;
   --text-display: 3.25rem;
-  --text-h-1: 2.25rem;
-  --text-h-2: 1.5rem;
-  --text-h-3: 1.125rem;
+  --text-h1: 2.25rem;
+  --text-h2: 1.5rem;
+  --text-h3: 1.125rem;
   --text-body: 1rem;
   --text-small: 0.875rem;
   --text-mono: 0.875rem;
@@ -160,11 +160,11 @@
   --popover-foreground: var(--color-text);
   --primary: var(--color-accent);
   --primary-foreground: #08121f;
-  --secondary: var(--color-surface-2);
+  --secondary: var(--color-surface2);
   --secondary-foreground: var(--color-text);
-  --muted: var(--color-surface-2);
+  --muted: var(--color-surface2);
   --muted-foreground: var(--color-text-muted);
-  --accent: var(--color-surface-2);
+  --accent: var(--color-surface2);
   --accent-foreground: var(--color-text);
   --border: var(--color-border);
   --input: var(--color-border);

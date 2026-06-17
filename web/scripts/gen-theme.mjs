@@ -17,7 +17,7 @@ lines.push(`  --font-sans: ${t.font.sans};`)
 lines.push(`  --font-mono: ${t.font.mono};`)
 lines.push("}")
 
-function kebab(s) { return s.replace(/([a-z])([A-Z0-9])/g, "$1-$2").toLowerCase() }
+function kebab(s) { return s.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase() }
 
 const css = readFileSync(join(root, "src/app/globals.css"), "utf8")
 const BEGIN = "/* BEGIN GENERATED TOKENS */"
