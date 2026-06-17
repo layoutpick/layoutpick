@@ -37,7 +37,7 @@ Web (`cd web`, npm):
 
 ```bash
 npm run dev                # local dev (port 3000)
-npm run build              # production build — see the prod-vs-dev gotcha below
+npm run build              # production build
 npx eslint .               # the design-system lockdown gate; MUST be exit 0
 npm run gen:theme          # regenerate the Tailwind @theme block from tokens.ts
 ```
@@ -52,7 +52,6 @@ Tokens are the single source of truth: edit **`web/src/lib/tokens.ts`**, then ru
 
 ## Gotchas that have actually bitten this project
 
-- **`web/` is Next.js 16 (Turbopack). Bugs can appear only in `next build` (prod), not `next dev`.** Several layout/CSS issues were invisible in dev. When verifying a `web/` change, check a production build (`npm run build && npm run start`) or the deploy, not just `npm run dev`. See `web/AGENTS.md`.
 - **Don't put custom tokens in Tailwind v4's reserved namespaces.** A `--spacing-lg` token silently hijacks `max-w-lg`/`w-*`/`p-*` to that pixel value — spacing tokens are emitted as `--space-*` instead. Brand colors must avoid shadcn's names: the accent blue is `brand`/`--color-brand` (utility `text-brand`), NOT `accent` (which collides with shadcn's `--color-accent`). Fonts: `--font-sans` must point at `--font-inter`, not be self-referential.
 - **The native-messaging host is spawned by Chrome with a minimal PATH** (no asdf/nvm/homebrew node). The host is launched via a wrapper that calls node by absolute path — see the install scripts. A bare `#!/usr/bin/env node` shebang fails when Chrome launches it.
 - **Native-messaging manifests are read at browser startup** — fully quit and reopen Chrome after `layoutpick install` or re-registration.
