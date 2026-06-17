@@ -1,4 +1,5 @@
 import CopyCommand from "@/components/CopyCommand"
+import BuyButton from "@/components/BuyButton"
 import { Container, Section, Stack, Row, Box } from "@/components/brand/layout"
 import { Heading, Text } from "@/components/brand/typography"
 import { Link } from "@/components/brand/link"
@@ -70,16 +71,19 @@ export default function Home() {
                 .
               </Text>
 
-              <Row gap="md">
-                {/* TODO: replace placeholder with real Chrome Web Store URL when published */}
-                <Link href="https://chromewebstore.google.com/" variant="muted" target="_blank" rel="noopener noreferrer" className={buttonVariants({ size: "lg" }) + " gap-2"}>
-                  <Globe className="w-4 h-4" />
-                  Add to Chrome
+              <Stack gap="sm">
+                <Row gap="md">
+                  <BuyButton />
+                  {/* TODO: replace placeholder with real Chrome Web Store URL when published */}
+                  <Link href="https://chromewebstore.google.com/" variant="muted" target="_blank" rel="noopener noreferrer" className={buttonVariants({ variant: "outline", size: "lg" }) + " gap-2"}>
+                    <Globe className="w-4 h-4" />
+                    Add to Chrome
+                  </Link>
+                </Row>
+                <Link href="#install" variant="muted" className="text-small underline underline-offset-4">
+                  No thanks, I&apos;ll just install it for free
                 </Link>
-                <Link href="#install" variant="muted" className={buttonVariants({ variant: "outline", size: "lg" })}>
-                  Read the install guide →
-                </Link>
-              </Row>
+              </Stack>
 
               {/* Demo visual */}
               <Box className="mt-6 border border-border rounded-token-lg bg-surface overflow-hidden">
