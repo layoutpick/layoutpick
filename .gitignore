@@ -1,0 +1,7 @@
+node_modules/
+host/dist/
+**/*.tsbuildinfo
+.DS_Store
+web/.next/
+web/node_modules/
+*.log
