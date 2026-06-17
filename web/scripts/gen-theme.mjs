@@ -11,7 +11,10 @@ const t = mod.tokens
 const lines = ["@theme {"]
 for (const [k, v] of Object.entries(t.color)) lines.push(`  --color-${kebab(k)}: ${v};`)
 for (const [k, v] of Object.entries(t.type)) lines.push(`  --text-${kebab(k)}: ${v.size};`)
-for (const [k, v] of Object.entries(t.space)) lines.push(`  --spacing-${k}: ${v};`)
+// Emit spacing under --space-*, NOT --spacing-* — Tailwind v4's --spacing-*
+// namespace drives max-w-*/w-*/p-*/gap-* sizing, so naming a key there (e.g.
+// --spacing-lg) hijacks max-w-lg to that px value. --space-* stays inert.
+for (const [k, v] of Object.entries(t.space)) lines.push(`  --space-${k}: ${v};`)
 for (const [k, v] of Object.entries(t.radius)) lines.push(`  --radius-token-${k}: ${v};`)
 lines.push(`  --font-sans: ${t.font.sans};`)
 lines.push(`  --font-mono: ${t.font.mono};`)
