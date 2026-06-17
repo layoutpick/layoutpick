@@ -1,4 +1,5 @@
 import CopyCommand from "@/components/CopyCommand";
+import BuyButton from "@/components/BuyButton";
 
 export default function Home() {
   return (
@@ -165,37 +166,11 @@ export default function Home() {
             </p>
 
             <div style={{ display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" }}>
+              <BuyButton />
               <a
                 href="https://chromewebstore.google.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  fontSize: "15px",
-                  fontWeight: 600,
-                  padding: "12px 22px",
-                  borderRadius: "10px",
-                  background: "#4c8dff",
-                  color: "#fff",
-                  textDecoration: "none",
-                }}
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <circle cx="8" cy="8" r="6.5" stroke="white" strokeWidth="1.5" />
-                  <circle cx="8" cy="8" r="2.5" fill="white" />
-                  <path
-                    d="M8 1.5v4M8 10.5v4M1.5 8h4M10.5 8h4"
-                    stroke="white"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                Add to Chrome
-              </a>
-              <a
-                href="#install"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -210,9 +185,22 @@ export default function Home() {
                   textDecoration: "none",
                 }}
               >
-                Read the install guide →
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <circle cx="8" cy="8" r="6.5" stroke="#7b8299" strokeWidth="1.5" />
+                  <circle cx="8" cy="8" r="2.5" fill="#7b8299" />
+                  <path
+                    d="M8 1.5v4M8 10.5v4M1.5 8h4M10.5 8h4"
+                    stroke="#7b8299"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                Add to Chrome
               </a>
             </div>
+            <p style={{ fontSize: ".85rem", color: "#454d66", marginTop: "14px" }}>
+              One-time $5 · lifetime license · macOS
+            </p>
 
             {/* Demo visual */}
             <div
