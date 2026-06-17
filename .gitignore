@@ -14,3 +14,4 @@ extension/content-main.bundle.js
 
 # Claude Code local settings
 .claude/settings.local.json
+.claude/worktrees
