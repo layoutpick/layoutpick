@@ -1,35 +1,78 @@
 // Exempt dir: native elements / inline style / literal colors allowed here.
+"use client"
 import type { ReactNode } from "react"
+import { PaperTexture } from "@paper-design/shaders-react"
 
 export interface PaperSurfaceProps {
-  grainFrequency: number // feTurbulence baseFrequency (~0.8 for fine grain)
-  grainOpacity: number // 0–1, ~0.05 for realism
+  fiber: number // curly directional fiber intensity (0–1)
+  crumples: number // cell-based crumple/mottle intensity (0–1)
+  folds: number // depth of fold/crease lines (0–1)
+  roughness: number // fine pixel grain (0–1)
   children: ReactNode
   className?: string
 }
 
-const PAPER_BASE = "#f4ecd8"
+// Warm cream stock. colorBack is the base sheet tone; colorFront is the darker
+// fiber/fold detail the shader paints into it.
+const PAPER_BACK = "#efe8d8"
+const PAPER_FRONT = "#cabd9f"
 
-function grainDataUri(frequency: number, opacity: number): string {
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='${frequency}' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='${opacity}'/></svg>`
-  return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`
-}
-
-export function PaperSurface({ grainFrequency, grainOpacity, children, className }: PaperSurfaceProps) {
+export function PaperSurface({ fiber, crumples, folds, roughness, children, className }: PaperSurfaceProps) {
   return (
     <div
       className={className}
       style={{
-        backgroundColor: PAPER_BASE,
-        backgroundImage: `radial-gradient(120% 120% at 30% 20%, #faf4e6 0%, #efe5cf 60%, #e8ddc4 100%), ${grainDataUri(grainFrequency, grainOpacity)}`,
-        backgroundBlendMode: "multiply, multiply",
-        borderRadius: 4,
-        padding: "64px 48px",
-        boxShadow:
-          "0 1px 1px rgba(60,45,20,.04), 0 2px 2px rgba(60,45,20,.04), 0 4px 8px rgba(60,45,20,.06), 0 8px 16px rgba(60,45,20,.08), inset 0 0 0 1px rgba(255,255,255,.4)",
+        position: "relative",
+        isolation: "isolate",
+        overflow: "hidden",
+        borderRadius: 5,
+        padding: "0 56px",
+        minHeight: 560,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: PAPER_BACK,
+        boxShadow: [
+          "0 1px 1px rgba(60,45,20,.05)",
+          "0 3px 6px rgba(60,45,20,.07)",
+          "0 10px 24px rgba(60,45,20,.10)",
+          "0 22px 50px rgba(60,45,20,.12)",
+          "inset 0 1px 0 rgba(255,255,255,.5)",
+        ].join(", "),
       }}
     >
-      {children}
+      {/* The WebGL paper texture fills the sheet behind the content. */}
+      <PaperTexture
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 0 }}
+        colorBack={PAPER_BACK}
+        colorFront={PAPER_FRONT}
+        fit="cover"
+        scale={0.95}
+        contrast={0.38}
+        roughness={roughness}
+        fiber={fiber}
+        fiberSize={0.15}
+        crumples={crumples}
+        crumpleSize={0.34}
+        folds={folds}
+        foldCount={5}
+        drops={0.12}
+        seed={7}
+      />
+      {/* edge vignette — paper sits in slightly shadowed surroundings */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 1,
+          background:
+            "radial-gradient(130% 130% at 50% 38%, rgba(255,253,247,0.18) 0%, rgba(120,95,50,0) 50%, rgba(85,65,32,0.16) 100%)",
+          mixBlendMode: "multiply",
+          pointerEvents: "none",
+        }}
+      />
+      <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 720 }}>{children}</div>
     </div>
   )
 }

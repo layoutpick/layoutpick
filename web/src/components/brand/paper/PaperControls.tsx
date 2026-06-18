@@ -1,13 +1,17 @@
 // web/src/components/brand/paper/PaperControls.tsx
 // Exempt dir: native inputs allowed.
 export interface PaperParams {
+  // wordmark relief
   mode: "deboss" | "emboss"
   azimuth: number
   elevation: number
   bevel: number
   depth: number
-  grainFrequency: number
-  grainOpacity: number
+  // paper shader (paper.design PaperTexture)
+  fiber: number
+  crumples: number
+  folds: number
+  roughness: number
 }
 
 const NUM_FIELDS: { key: keyof PaperParams; label: string; min: number; max: number; step: number }[] = [
@@ -15,8 +19,10 @@ const NUM_FIELDS: { key: keyof PaperParams; label: string; min: number; max: num
   { key: "elevation", label: "Light elevation", min: 0, max: 90, step: 1 },
   { key: "bevel", label: "Bevel softness", min: 0, max: 8, step: 0.1 },
   { key: "depth", label: "Depth", min: 0, max: 6, step: 0.1 },
-  { key: "grainFrequency", label: "Grain frequency", min: 0.1, max: 1.2, step: 0.01 },
-  { key: "grainOpacity", label: "Grain opacity", min: 0, max: 0.2, step: 0.005 },
+  { key: "fiber", label: "Paper fiber", min: 0, max: 1, step: 0.01 },
+  { key: "crumples", label: "Crumple", min: 0, max: 1, step: 0.01 },
+  { key: "folds", label: "Folds", min: 0, max: 1, step: 0.01 },
+  { key: "roughness", label: "Roughness", min: 0, max: 1, step: 0.01 },
 ]
 
 export function PaperControls({ value, onChange }: { value: PaperParams; onChange: (next: PaperParams) => void }) {

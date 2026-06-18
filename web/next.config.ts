@@ -4,6 +4,14 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // Force deterministic CSS order in the production build so the cascade
+  // matches `next dev`. Without this, Turbopack's prod CSS chunking can merge
+  // /reorder stylesheets (vercel/next.js#89523) — the documented cause of
+  // "looks fine in dev, breaks in `next build`". 'strict' preserves import
+  // order at the cost of more CSS chunks.
+  experimental: {
+    cssChunking: "strict",
+  },
   async headers() {
     return [
       {
